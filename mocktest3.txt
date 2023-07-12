@@ -1,0 +1,243 @@
+1. Create a superclass called Animal with a method makeSound() that prints the sound made by the animal. Implement subclasses Dog, Cat, and Cow that inherit from the Animal class. Implement the makeSound() method in each subclass to print the sound made by a dog, cat, and cow, respectively.
+
+
+
+ Answer--->  class Animal {
+    public void makeSound() {
+        System.out.println("The animal makes a sound.");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The dog barks.");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The cat meows.");
+    }
+}
+
+class Cow extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("The cow moos.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        animal.makeSound();  // Output: The animal makes a sound.
+
+        Dog dog = new Dog();
+        dog.makeSound();     // Output: The dog barks.
+
+        Cat cat = new Cat();
+        cat.makeSound();     // Output: The cat meows.
+
+        Cow cow = new Cow();
+        cow.makeSound();     // Output: The cow moos.
+    }
+}
+-------------------------------------------------------------------------------------------------------
+
+
+Question 2--->
+                   2. Create a superclass called Shape with an abstract method calculateArea() that returns the area of the shape. Implement subclasses Rectangle, Circle, and Triangle that inherit from the Shape class. Implement the calculateArea() method in each subclass to calculate and return the area of a rectangle, circle, and triangle, respectively. Then, create a class called ShapeCalculator with a method printArea(Shape shape) that accepts an object of type Shape and prints its area. Demonstrate polymorphism by passing instances of different subclasses to the printArea() method.
+
+Answewr2----->  abstract class Shape {
+    public abstract double calculateArea();
+}
+
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    @Override
+    public double calculateArea() {
+        return width * height;
+    }
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Triangle extends Shape {
+    private double base;
+    private double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    public double getBase() {
+        return base;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    @Override
+    public double calculateArea() {
+        return 0.5 * base * height;
+    }
+}
+
+class ShapeCalculator {
+    public void printArea(Shape shape) {
+        double area = shape.calculateArea();
+        System.out.println("Area: " + area);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ShapeCalculator calculator = new ShapeCalculator();
+
+        Rectangle rectangle = new Rectangle(5, 4);
+        Circle circle = new Circle(3);
+        Triangle triangle = new Triangle(5, 2);
+
+        calculator.printArea(rectangle);
+        calculator.printArea(circle);
+        calculator.printArea(triangle);
+    }
+}
+
+----------------------------------------------------------------------------------------------------------
+Question 3--->    Create a class called Person with private properties like name, age, and address. Provide public getter and setter methods for these properties. Write a program that creates an instance of the Person class, sets values for its properties using the setter methods, and displays the values using the getter methods.
+
+  class Person {
+    private String name;
+    private int age;
+    private String address;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person person = new Person();
+
+        // Set values using setter methods
+        person.setName("John Doe");
+        person.setAge(25);
+        person.setAddress("123 Main St, City");
+
+        // Display values using getter methods
+        System.out.println("Name: " + person.getName());
+        System.out.println("Age: " + person.getAge());
+        System.out.println("Address: " + person.getAddress());
+    }
+}
+
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+question4--->Create an interface called Drawable with a method draw() that has no implementation. Implement this interface in classes Circle and Rectangle. Write a program that creates objects of Circle and Rectangle and calls the draw() method on each object.
+
+
+Answer--->  interface Drawable {
+    void draw();
+}
+
+class Circle implements Drawable {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+class Rectangle implements Drawable {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle();
+        Rectangle rectangle = new Rectangle();
+
+        circle.draw();
+        rectangle.draw();
+    }
+}
+
+
+----------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
